@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثاث الجمل - قريباً</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: 0.3s ease-out;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .orange {
+            color: orangered;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Under Development Main Section Styling */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 20px;
+            background-color: #fcfcfc;
+        }
+
+        .development_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .development_box i {
+            font-size: 80px;
+            color: orangered;
+        }
+
+        .development_box h1 {
+            font-size: 2.2rem;
+            color: rgb(30, 30, 30);
+            margin: 0;
+        }
+
+        .development_box p {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Redesigned Footer Styles */
+        footer {
+            background-color: rgb(22, 22, 22);
+            color: #f1f1f1;
+            padding: 50px 20px 20px;
+            border-top: 4px solid orangered;
+        }
+
+        .footer_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer_col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer_col.brand_col {
+            align-items: flex-start;
+        }
+
+        .footer_col img {
+            width: 60px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .footer_col h3,
+        .footer_col h4 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .footer_col h4 {
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer_col h4::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background-color: orangered;
+        }
+
+        .footer_col p,
+        .footer_col a {
+            color: #bbb;
+            font-size: 0.95rem;
+            text-decoration: none;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer_col a:hover {
+            color: orangered;
+        }
+
+        .footer_links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer_contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            direction: ltr;
+            justify-content: flex-end;
+        }
+
+        .contact_item i {
+            color: orangered;
+            font-size: 1.1rem;
+        }
+
+        .footer_bottom {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .footer_bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="#" class="brand" aria-label="Aljamal home">
+                <img src="logo.png" alt="Aljamal logo" class="brand-logo">
+            </a>
+
+            <nav class="nav">
+                <a href="#" class="current_site"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="#"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="#"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#contacts"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="#"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="bottom_nav">
+            <nav class="nav">
+                <a href="#" class="current_site"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="#"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="#"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#contacts"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="#"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+        <div class="development_box">
+            <i class="fa-solid fa-tools" style="font-size: 42px; color: rgb(24, 12, 12);"></i>
+            <h1>الموقع تحت التطوير</h1>
+            <p>Site under Development</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_col brand_col">
+                <img src="logo.png" alt="Al-Jamal logo">
+                <h3 class="orange">أثاث الجمل</h3>
+                <p>تصاميم أثاث أنيقة صُممت لتلائم الحياة العصرية وتوفر راحةً تدوم طويلاً لكل زاوية في منزلك.</p>
+            </div>
+
+            <div class="footer_col">
+                <h4>روابط سريعة</h4>
+                <ul class="footer_links">
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المجموعات</a></li>
+                    <li><a href="#">صالة العرض</a></li>
+                    <li><a href="#">معلومات عنا</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer_col">
+                <h4>تواصل معنا</h4>
+                <div class="footer_contacts">
+                    <div class="contact_item">
+                        <a href="tel:+966503795987">+966 50 379 5987</a>
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contact_item">
+                        <a href="#" target="_blank">+966 50 379 5987</a>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_bottom">
+            <p>&copy; 2026 أثاث الجمل. جميع الحقوق محفوظة.</p>
+            <p>تصميم أثاث عصري يجمع بين الأصالة والفخامة</p>
+        </div>
+    </footer>
+</body>
+
+</html>
