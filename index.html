@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثاث الجمل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: 0.3s ease-out;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .hero_container {
+            display: block;
+            margin: 0;
+            background-image: linear-gradient(to right, rgba(244, 245, 247, 0.9), rgba(238, 244, 250, 0.2)), url("hero_image.jpg");
+            background-size: cover;
+            width: 100%;
+            min-height: 33vh;
+            background-position: right;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .hero_container .text {
+            height: 100%;
+            max-width: 50%;
+            margin-right: auto;
+        }
+
+        .hero_container .text h1 {
+            color: rgb(49, 49, 49);
+            font-size: 2rem;
+        }
+
+        .hero_container .text p {
+            color: rgb(49, 49, 49);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .hero_container .text a {
+            background-color: orangered;
+            padding: 10px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        .hero_container .text a:hover {
+            background-color: red;
+        }
+
+        .orange {
+            color: orangered;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        article {
+            margin: 15px;
+            padding: 10px;
+        }
+
+        hr {
+            margin: 10px 0;
+        }
+
+        /* Product Grid & Cards Styling */
+        .products_grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product_card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            width: 300px;
+            height: 350px;
+        }
+
+        .product_card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .product_image_container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background-color: #f7f7f7;
+        }
+
+        .product_card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product_details {
+            padding: 7px;
+        }
+
+        .product_details h2 {
+            color: rgb(24, 0, 0);
+        }
+
+        /* Popup Styling */
+        .popup_container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup_container.active {
+            display: flex;
+        }
+
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .display_image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        #close {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+
+
+        hr {
+            margin: 25px 0;
+        }
+
+
+        .title_text {
+            font-size: 35px;
+        }
+
+
+
+        .offer_card_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+
+
+
+        .offer_card {
+            display: flex;
+            background-color: #faf7f7;
+            border: 1px solid rgb(206, 205, 205);
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+            flex-direction: column;
+            padding: 12px;
+            gap: 40px;
+        }
+
+        .offer_card .icon {
+            margin: 0;
+            background-color: transparent;
+            font-size: 65px;
+            color: orangered;
+        }
+
+
+
+
+        .offer_card p {
+            color: black;
+            margin: 0;
+            font-size: 30px;
+        }
+
+
+
+        @media (max-width: 720px) {
+            .offer_card {
+                width: 100%;
+                height: 200px;
+                max-height: fit-content;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .products_grid {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 15px 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                direction: ltr;
+            }
+
+            .product_card {
+                flex: 0 0 75%;
+                /* Cards take up 75% of screen width, showing a peek of the next card */
+                scroll-snap-align: center;
+                height: auto;
+            }
+        }
+
+
+        footer{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(26,26,26);
+            width: 100%;
+            padding: 20px;
+            height: fit-content;
+            color: white;
+        } 
+
+        footer p{
+            margin-top: 50px;
+        }
+
+        .footer_container{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer_container .logo{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer_container .logo img{
+            width: 50px;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        .footer_container .logo h3{
+            font-size: 9px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contacts{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        p a{
+            color: white;
+        }
+        
+        .contacts p{
+            direction: ltr;
+            gap: 7px;
+            display: inline-flex;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="popup_container">
+        <div class="popup">
+
+        </div>
+    </div>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="#" class="brand" aria-label="Aljamal home">
+                <img src="logo.png" alt="Aljamal logo" class="brand-logo">
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#" class="current_site"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="#"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="#"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="#"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="bottom_nav">
+            <nav class="nav">
+                <a href="#" class="current_site"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="#"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="#"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="#"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+        <div class="hero_container">
+            <div class="text">
+                <h1>
+                    يكتشف
+                </h1>
+                <h1>
+                    جمالٌ خالد
+                </h1>
+                <p>
+                    تصاميم أثاث أنيقة صُممت لتلائم الحياة العصرية وتوفر راحةً تدوم طويلاً.
+                </p>
+                <a href="#">تسوق التشكيلة</a>
+            </div>
+        </div>
+        <article>
+            <h3 class="orange center">تسوق حسب الفئة </h3>
+            <h2 class="center">تشكيلة مختارة بعناية تناسب كل مساحة</h2>
+        </article>
+        <hr>
+        <article>
+            <h2 class="center title_text">
+                تشكيلتنا
+            </h2>
+            <div id="products-container" class="products_grid">
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/1.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>أريكة معيارية منحنية من قماش البوكليه</h2>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/2.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>طقم سفرة</h2>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/3.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>أريكة توكسيدو عصرية</h2>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/4.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>أريكة كلاسيكية جديدة منحنية</h2>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/5.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>كرسي مخملي عصري</h2>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="product_image_container">
+                        <img src="furniture_pics/6.jpg" alt="">
+                    </div>
+                    <div class="product_details">
+                        <h2>طقم أرائك للمجلس</h2>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <hr>
+        <h2 class="center title_text">لماذا تختارنا</h2>
+        <article class="offer_card_container">
+            <div class="offer_card">
+                <i class="fa-solid fa-circle-check icon"></i>
+                <p>اختيار دقيق لأفضل المواد لضمان المتانة والجمال.</p>
+            </div>
+            <div class="offer_card">
+                <i class="fa-solid fa-shop icon"></i>
+                <p>تفضل بزيارتنا لتجربة الأثاث ومعاينته قبل الشراء.</p>
+            </div>
+            <div class="offer_card">
+                <i class="fa-solid fa-headphones icon"></i>
+                <p>فريق من الخبراء مستعد لمساعدتك في أي وقت</p>
+            </div>
+            <div class="offer_card">
+                <i class="fa-solid fa-wrench icon"></i>
+                <p>اضبط الأبعاد والأقمشة لتلائم منزلك تماماً</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="footer_container">
+            <div class="logo">
+                <img src="logo.png" alt="">
+                <h3 class="orange">AL-JAMAL FURNITURE</h3>
+            </div>
+            <div class="contacts">
+                <h2 class="orange">جهات الاتصال</h2>
+                <p><i class="fa-solid fa-phone"></i><a href="tel:+966503795987">+966503795987</a></p>
+                <p><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/+966503795987">+966503795987</a></p>
+            </div>
+        </div>
+        <p class="center">&copy; 2026 جميع الحقوق محفوظة</p>
+    </footer>
+    <script>
+        const productsContainer = document.getElementById("products-container");
+
+        productsContainer.addEventListener("click", (event) => {
+            const card = event.target.closest(".product_card");
+            if (card) {
+                const popupContainer = document.querySelector(".popup_container");
+                const popup = document.querySelector(".popup");
+                popupContainer.classList.add("active");
+
+                const productId = card.id;
+                // Grab the text content directly from the h2 element inside the clicked card
+                const productName = card.querySelector(".product_details h2").textContent;
+                const productPIC = card.querySelector(".product_image_container img").src;
+
+                popup.innerHTML = `
+                    <button id="close">إغلاق</button>
+                    <div class="display_image">
+                        <img src="${productPIC}" alt="" onclick="this.requestFullscreen()">
+                    </div>
+                    <div class="product_display_details">
+                        <h2>${productName}</h2>
+                    </div>
+                `;
+
+                const closeBtn = document.getElementById("close");
+
+                closeBtn.addEventListener("click", () => {
+                    popupContainer.classList.remove("active");
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
