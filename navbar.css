@@ -1,3 +1,83 @@
+:root {
+    --bg: #f5f5f3;
+    --panel: rgba(255, 255, 255, 0.72);
+    --panel-strong: #ffffff;
+    --text: #161616;
+    --muted: #6d6d6d;
+    --line: rgba(22, 22, 22, 0.1);
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f8f8f7 0%, #eceae6 100%);
+    color: var(--text);
+    padding-bottom: 70px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid var(--line);
+}
+
+.container {
+    width: min(1200px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 82px;
+    gap: 20px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    display: block;
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.96rem;
+    transition: color 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+    color: var(--text);
+    border-bottom: 2px solid orangered;
+}
 .bottom_nav {
     position: fixed;
     bottom: 0;
@@ -41,4 +121,37 @@
 
 .bottom_nav .nav a.current_site {
     color: orangered; /* Highlight active bottom tab */
+}
+
+.nav a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav a .icon {
+    background-color: transparent;
+    color: rgb(20, 20, 20);
+    font-size: 30px;
+}
+
+.nav .current_site {
+    color: var(--text);
+}
+
+
+@media (max-width: 760px) {
+    .bottom_nav {
+        display: block
+    }
+
+    .site-header .nav {
+        display: none;
+    }
+
+    footer{
+        margin-bottom: 60px;
+    }
 }
