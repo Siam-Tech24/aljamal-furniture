@@ -13,7 +13,7 @@
             transition: 0.3s ease-out;
         }
 
-        body{
+        body {
             margin: 0;
             padding: 0;
         }
@@ -212,7 +212,7 @@
             border-radius: 12px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
             flex-direction: column;
-            padding: 12px;
+            padding: 15px;
             gap: 40px;
         }
 
@@ -238,94 +238,153 @@
             .offer_card {
                 width: 100%;
                 height: 200px;
-                max-height: fit-content;
+                min-height: fit-content;
             }
         }
 
+        /* Responsive adjustments for product cards */
         @media (max-width: 720px) {
             .products_grid {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding: 15px 10px;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                direction: ltr;
+                justify-content: stretch;
+                padding: 10px;
+                gap: 15px;
             }
 
             .product_card {
-                flex: 0 0 75%;
-                /* Cards take up 75% of screen width, showing a peek of the next card */
-                scroll-snap-align: center;
+                width: 100%;
+                /* Take up full width on mobile */
                 height: auto;
+                /* Let content dictate height instead of fixed 350px */
+                max-width: 100%;
+            }
+
+            .product_image_container {
+                height: 200px;
+                /* Slightly shorter image height on mobile */
+            }
+
+            .product_details h2 {
+                font-size: 0.95rem;
+                /* Scale down heading text slightly for small screens */
             }
         }
 
 
-        footer{
+        footer {
+            background-color: rgb(22, 22, 22);
+            color: #f1f1f1;
+            padding: 50px 20px 20px;
+            border-top: 4px solid orangered;
+        }
+
+        .footer_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer_col {
             display: flex;
             flex-direction: column;
-            background-color: rgb(26,26,26);
-            width: 100%;
-            padding: 20px;
-            height: fit-content;
-            color: white;
-        } 
-
-        footer p{
-            margin-top: 50px;
+            gap: 15px;
         }
 
-        .footer_container{
-            width: 100%;
-            height: fit-content;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .footer_col.brand_col {
+            align-items: flex-start;
         }
 
-        .footer_container .logo{
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .footer_container .logo img{
-            width: 50px;
+        .footer_col img {
+            width: 60px;
             height: auto;
-            margin: 0;
-            padding: 0;
-        }
-        .footer_container .logo h3{
-            font-size: 9px;
-            margin: 0;
-            padding: 0;
+            border-radius: 8px;
         }
 
-        .contacts{
+        .footer_col h3,
+        .footer_col h4 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .footer_col h4 {
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer_col h4::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background-color: orangered;
+        }
+
+        .footer_col p,
+        .footer_col a {
+            color: #bbb;
+            font-size: 0.95rem;
+            text-decoration: none;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer_col a:hover {
+            color: orangered;
+        }
+
+        .footer_links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .footer_contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact_item {
+            display: flex;
             align-items: center;
-        }
-
-        p a{
-            color: white;
-        }
-        
-        .contacts p{
+            gap: 10px;
             direction: ltr;
-            gap: 7px;
-            display: inline-flex;
-            margin: 0;
-            padding: 0;
+            justify-content: flex-end;
+            /* Keeps alignment clean in RTL layout */
         }
 
+        .contact_item i {
+            color: orangered;
+            font-size: 1.1rem;
+        }
+
+        .footer_bottom {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .footer_bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -459,17 +518,46 @@
     </main>
     <footer>
         <div class="footer_container">
-            <div class="logo">
-                <img src="logo.png" alt="">
-                <h3 class="orange">AL-JAMAL FURNITURE</h3>
+            <!-- Column 1: Brand Info -->
+            <div class="footer_col brand_col">
+                <img src="logo.png" alt="Al-Jamal logo">
+                <h3 class="orange">أثاث الجمل</h3>
+                <p>تصاميم أثاث أنيقة صُممت لتلائم الحياة العصرية وتوفر راحةً تدوم طويلاً لكل زاوية في منزلك.</p>
             </div>
-            <div class="contacts">
-                <h2 class="orange">جهات الاتصال</h2>
-                <p><i class="fa-solid fa-phone"></i><a href="tel:+966503795987">+966503795987</a></p>
-                <p><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/+966503795987">+966503795987</a></p>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer_col">
+                <h4>روابط سريعة</h4>
+                <ul class="footer_links">
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المجموعات</a></li>
+                    <li><a href="#">صالة العرض</a></li>
+                    <li><a href="#">معلومات عنا</a></li>
+                </ul>
+            </div>
+
+
+
+            <!-- Column 3: Contacts -->
+            <div class="footer_col">
+                <h4>تواصل معنا</h4>
+                <div class="footer_contacts">
+                    <div class="contact_item">
+                        <a href="tel:+966503795987">+966 50 379 5987</a>
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contact_item">
+                        <a href="https://wa.me/+966503795987" target="_blank">+966 50 379 5987</a>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <p class="center">&copy; 2026 جميع الحقوق محفوظة</p>
+
+        <div class="footer_bottom">
+            <p>&copy; 2026 أثاث الجمل. جميع الحقوق محفوظة.</p>
+            <p>تصميم أثاث عصري يجمع بين الأصالة والفخامة</p>
+        </div>
     </footer>
     <script>
         const productsContainer = document.getElementById("products-container");
