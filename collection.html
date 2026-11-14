@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أثاث الجمل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: 0.3s ease-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1{
+            margin: 30px;
+        }
+
+
+        .main_div {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+
+        .image_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
+
+        .product_card {
+            background-color: var(--panel-strong, #ffffff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--line);
+        }
+
+        .product_card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card_image_wrapper {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .product_card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product_card:hover img {
+            transform: scale(1.05);
+        }
+
+
+        footer {
+            background-color: rgb(22, 22, 22);
+            color: #f1f1f1;
+            padding: 50px 20px 20px;
+            border-top: 4px solid orangered;
+        }
+
+        .footer_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer_col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer_col.brand_col {
+            align-items: flex-start;
+        }
+
+        .footer_col img {
+            width: 60px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .footer_col h3,
+        .footer_col h4 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .footer_col h4 {
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer_col h4::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background-color: orangered;
+        }
+
+        .footer_col p,
+        .footer_col a {
+            color: #bbb;
+            font-size: 0.95rem;
+            text-decoration: none;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer_col a:hover {
+            color: orangered;
+        }
+
+        .footer_links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer_contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            direction: ltr;
+            justify-content: flex-end;
+            /* Keeps alignment clean in RTL layout */
+        }
+
+        .contact_item i {
+            color: orangered;
+            font-size: 1.1rem;
+        }
+
+        .footer_bottom {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .footer_bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup_container">
+        <div class="popup">
+
+        </div>
+    </div>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="#" class="brand" aria-label="Aljamal home">
+                <img src="logo.png" alt="Aljamal logo" class="brand-logo">
+            </a>
+
+            <nav class="nav">
+                <a href="index.html"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#" class="current_site"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#contacts"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="bottom_nav">
+            <nav class="nav">
+                <a href="index.html"><i class="fa-solid fa-home"></i>بيت</a>
+                <a href="#" class="current_site"><i class="fa-solid fa-layer-group"></i>مجموعات</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-shop"></i>صالة عرض</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-circle-info"></i>معلومات عنا</a>
+                <a href="#contacts"><i class="fa-solid fa-phone"></i>اتصل بنا</a>
+                <a href="uncomeplete.html"><i class="fa-solid fa-star"></i>مراجعات</a>
+            </nav>
+        </div>
+        <center><h1>مجموعتنا</h1></center>
+        <hr>
+        <div class="main_div">
+            <div class="image_container">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_container">
+            <!-- Column 1: Brand Info -->
+            <div class="footer_col brand_col">
+                <img src="logo.png" alt="Al-Jamal logo">
+                <h3 class="orange">أثاث الجمل</h3>
+                <p>تصاميم أثاث أنيقة صُممت لتلائم الحياة العصرية وتوفر راحةً تدوم طويلاً لكل زاوية في منزلك.</p>
+            </div>
+
+
+
+
+            <!-- Column 3: Contacts -->
+            <div class="footer_col">
+                <h4>تواصل معنا</h4>
+                <div class="footer_contacts" id="contacts">
+                    <div class="contact_item">
+                        <a href="tel:+966503795987">+966 50 379 5987</a>
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contact_item">
+                        <a href="https://wa.me/+966503795987" target="_blank">+966 50 379 5987</a>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="contact_item">
+                        <a href="https://www.tiktok.com/@user51785498659003?_r=1&_t=ZS-9AWbyBmHoJR"
+                            target="_blank">AL-JAMAL FURNITURE</a>
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_bottom">
+            <p>&copy; 2026 أثاث الجمل. جميع الحقوق محفوظة.</p>
+            <p>تصميم أثاث عصري يجمع بين الأصالة والفخامة</p>
+        </div>
+    </footer>
+    <script>
+
+        const container = document.querySelector(".image_container");
+
+
+        for (let i = 1; i <= 50; i++) {
+            const card = document.createElement("article");
+            card.classList.add("product_card");
+
+            card.innerHTML = `
+            <div class="card_image_wrapper">
+                <img src="furniture_pics/${i}.jpg" alt="furniture_image" onerror="this.closest('.product_card').style.display='none';" onclick="this.requestFullscreen()">
+            </div>
+        `;
+
+            container.appendChild(card);
+        }
+    </script>
+</body>
+
+</html>
